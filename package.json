@@ -4,7 +4,7 @@
   "description": "Projeto da Livraria Digital do Curso de Desenvolvimento Web do PUD Engenhoca",
   "main": "www.js",
   "scripts": {
-    "start": "node www.js"
+    "start": "node www.js",
     "test": "node teste.js"
   },
   "repository": {
