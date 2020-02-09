@@ -1,0 +1,14 @@
+{
+  "name": "Livraria Digital PUD",
+  "description": "Projeto da Livraria Digital do Curso de Desenvolvimento Web da PUD",
+  "repository": "https://github.com/heroku/node-js-getting-started",
+  "keywords": [
+    "PUD",
+    "Desenvolvimento",
+    "Web",
+    "Heroku",
+    "Node",
+    "Mysql",
+    "API"
+  ]
+}
