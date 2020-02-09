@@ -1,0 +1,34 @@
+{
+  "name": "livraria-digital-pud",
+  "version": "1.0.0",
+  "description": "Projeto da Livraria Digital do Curso de Desenvolvimento Web do PUD Engenhoca",
+  "main": "www.js",
+  "scripts": {
+    "start": "node www.js"
+    "test": "node teste.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisalvarenga-pde/livraria-digital-pud.git"
+  },
+  "keywords": [
+    "PUD",
+    "Desenvolvimento",
+    "Web",
+    "Heroku",
+    "Node",
+    "Mysql",
+    "API"
+  ],
+  "author": "PUD Creative Softwares",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/luisalvarenga-pde/livraria-digital-pud/issues"
+  },
+  "homepage": "https://github.com/luisalvarenga-pde/livraria-digital-pud#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
