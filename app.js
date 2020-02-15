@@ -21,5 +21,6 @@ app.use(function (req, res, next) {
 app.use('/', index);
 app.use('/api/v1/livro/', livro);
 
+// exporta o app express
 module.exports = app;
 
