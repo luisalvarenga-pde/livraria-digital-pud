@@ -10,7 +10,7 @@ const uriConnection = {
     debug: true
 };
 
-const pool = mysql.createPool(uriConnection);
+const pool = mysql.createpool(uriconnection);
 
 function executeQuery(query, values, callback) {
 

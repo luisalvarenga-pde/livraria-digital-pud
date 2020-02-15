@@ -5,7 +5,7 @@ const execSQLQuery = require('../BD/config');
 //definindo as rotas
 const router = express.Router();
 
-// rota clientes
+// rota - busca livros por isbn
 router.get('/livro/isbn/:id',
     (req, res) => {
         let sqlQry = 'SELECT * FROM livro where isbn = ?';
