@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-// registrando as rotas
+// registrando as rotas da api
 app.use('/', index);
 app.use('/api/v1/busca/', busca);
 app.use('/api/v1/genero/', genero);
