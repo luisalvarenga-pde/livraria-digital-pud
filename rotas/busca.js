@@ -43,4 +43,23 @@ router.get('/livro/autor/?nome=',
     }
 );
 
+// rota - busca livros por editora
+router.get('/livro/editora/?nome=',
+    (req, res) => {
+        let sqlQry = 'SELECT * FROM livro where editora = ?';
+        let values = [req.params.id];
+
+        execSQLQuery(sqlQry, values,
+            function(err, rows) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(rows);
+                }
+            }
+        );
+
+    }
+);
+
 module.exports = router;
