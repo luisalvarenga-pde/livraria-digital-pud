@@ -24,4 +24,23 @@ router.get('/livro/isbn/:id',
     }
 );
 
+// rota - busca livros por autor
+router.get('/livro/autor/?nome=',
+    (req, res) => {
+        let sqlQry = 'SELECT * FROM livro where autor = ?';
+        let values = [req.params.id];
+
+        execSQLQuery(sqlQry, values,
+            function(err, rows) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(rows);
+                }
+            }
+        );
+
+    }
+);
+
 module.exports = router;
