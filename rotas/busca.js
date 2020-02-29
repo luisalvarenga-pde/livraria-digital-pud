@@ -25,10 +25,19 @@ router.get('/livro/isbn/:id',
 );
 
 // rota - busca livros por autor
-router.get('/livro/autor/?nome=',
+router.get('/livro/autor/',
     (req, res) => {
-        let sqlQry = 'SELECT * FROM livro where autor = ?';
-        let values = [req.params.id];
+        let sqlQry = 'SELECT l.nome, a.nome ';
+        sqlQry += 'FROM livro as l ';
+        sqlQry += 'INNER JOIN autorlivro as al ';
+        sqlQry += 'ON l.idLivro = al.idAutor ';
+        sqlQry += 'INNER JOIN autor as a ';
+        sqlQry += 'ON a.idAutor = al.idAutor ';
+        sqlQry += 'WHERE a.nome like ?';
+
+        let nome = '%' + req.query.nome + '%';
+
+        let values = [nome];
 
         execSQLQuery(sqlQry, values,
             function(err, rows) {
@@ -44,7 +53,7 @@ router.get('/livro/autor/?nome=',
 );
 
 // rota - busca livros por editora
-router.get('/livro/editora/?nome=',
+router.get('/livro/editora/',
     (req, res) => {
         let sqlQry = 'SELECT * FROM livro where editora = ?';
         let values = [req.params.id];
