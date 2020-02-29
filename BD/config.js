@@ -10,10 +10,6 @@ const uriConnection = {
     debug: true
 };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 214afca169331bed7b54e48182792a154c1c99b0
 const pool = mysql.createPool(uriConnection);
 
 function executeQuery(query, values, callback) {
