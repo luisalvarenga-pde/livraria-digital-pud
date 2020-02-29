@@ -50,7 +50,12 @@ router.get('/livro/isbn/:id',
 // rota: /api/v1/busca/livro/genero/<isbn>
 router.get('/livro/genero/:id',
     (req, res) => {
-        let sqlQry = 'SELECT * FROM livro where idGenero = ?';
+        let sqlQry = 'SELECT l.*, g.nome ';
+        sqlQry += '     from livro as l ';
+        sqlQry += '    inner join genero as g ';
+        sqlQry += '       on g.idGeneroa = l.idGenero ';
+        sqlQry += '    where g.idGenero = ?';
+        
         const values = [parseInt(req.params.id)];
 
         execSQLQuery(sqlQry, values,
