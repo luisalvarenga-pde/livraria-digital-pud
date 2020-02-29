@@ -53,9 +53,9 @@ router.get('/livro/genero/:id',
         let sqlQry = 'SELECT l.*, g.nome ';
         sqlQry += '     from livro as l ';
         sqlQry += '    inner join genero as g ';
-        sqlQry += '       on g.idGeneroa = l.idGenero ';
+        sqlQry += '       on g.idGenero = l.idGenero ';
         sqlQry += '    where g.idGenero = ?';
-        
+
         const values = [parseInt(req.params.id)];
 
         execSQLQuery(sqlQry, values,
