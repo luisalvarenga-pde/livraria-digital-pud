@@ -2,14 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const execSQLQuery = require('../BD/config');
 
-//definindo as rotas 
+//definindo as rotas
 const router = express.Router();
 
 //Rota Genero
 //Metodo HTTP GET
 router.get('/:id?',
     (req, res) => {
-        let = sqlQry = 'SELECT * FROM genero';
+        let sqlQry = 'SELECT * FROM genero';
         let values = [];
 
         console.log (req.params.id);
@@ -18,7 +18,16 @@ router.get('/:id?',
             sqlQry += ' WHERE idGenero = ?';
             values = [parseInt(req.params.id)];
         }
-        execSQLQuery(sqlQry, values, res);
+        
+        execSQLQuery(sqlQry, values,
+            function(err, rows) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(rows);
+                }
+            }
+        );
     }
 );
 
@@ -30,7 +39,15 @@ router.post('/',
         const sqlQry = 'INSERT INTO pud_banco_03.genero (nome) VALUES(?)';
         const values = [[nome]];
 
-        execSQLQuery(sqlQry, values, res);
+        execSQLQuery(sqlQry, values,
+            function(err, rows) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(rows);
+                }
+            }
+        );
     }
 );
 
@@ -40,7 +57,15 @@ router.delete('/:id',
         const sqlQry = 'DELETE FROM genero WHERE idGenero = ?';
         const values = [parseInt(req.params.id)];
 
-        execSQLQuery(sqlQry, values, res);
+        execSQLQuery(sqlQry, values,
+            function(err, rows) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(rows);
+                }
+            }
+        );
     }
 );
 
@@ -48,9 +73,17 @@ router.delete('/:id',
 router.patch('/:id',
     (req, res) => {
         const sqlQry = 'UPDATE genero Set nome = ? WHERE idGenero = ?';
-        const values = [req.bodyç.nome ,parseInt(req.params.id)];
+        const values = [req.body.nome ,parseInt(req.params.id)];
 
-        execSQLQuery(sqlQry, req, res);
+        execSQLQuery(sqlQry, values,
+            function(err, rows) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(rows);
+                }
+            }
+        );
     }
 );
 
