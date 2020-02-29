@@ -9,7 +9,7 @@ const uriConnection = {
     database: 'pud_banco_03',
     debug: true
 };
-
+ 
 const pool = mysql.createPool(uriConnection);
 
 function executeQuery(query, values, callback) {
