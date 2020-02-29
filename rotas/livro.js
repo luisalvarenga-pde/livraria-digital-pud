@@ -61,7 +61,15 @@ router.post('/',
             [nome, descricao, total_paginas, livro_valor, ano_de_publicacao, edicao]
         ];
 
-        execSQLQuery(sqlQry, values, res);
+        execSQLQuery(sqlQry, values,
+            function(err, rows) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(rows);
+                }
+            }
+        );
     }
 );
 
@@ -71,7 +79,15 @@ router.delete('/:id',
         const sqlQry = 'Delete From Livro Where idLivro = ?';
         const values = [parseInt(req.params.id)];
 
-        execSQLQuery(sqlQry, values, res);
+        execSQLQuery(sqlQry, values,
+            function(err, rows) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(rows);
+                }
+            }
+        );
     }
 );
 
@@ -81,17 +97,15 @@ router.patch('/:id',
         const sqlQry = 'UPDATE livro Set nome = ?, descricao = ?, total_paginas = ?, livro_valor = ?, ano_de_publicacao = ?, edicao = ? WHERE idLivro = ?';
         const values = [req.body.nome, req.body.descricao, req.body.total_paginas, req.body.total_paginas, req.body.livro_valor, req.body.ano_de_publicacao, req.body.edicao, parseInt(req.params.id)];
 
-        execSQLQuery(sqlQry, values, res);
-    }
-);
-
-
-router.get('/livro/isbn/:id',
-    (req, res) => {
-        let sqlQry = 'SELECT * FROM livro where isbn = ?';
-        let values = [];
-
-        execSQLQuery(sqlQry, values, res);
+        execSQLQuery(sqlQry, values,
+            function(err, rows) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(rows);
+                }
+            }
+        );
     }
 );
 

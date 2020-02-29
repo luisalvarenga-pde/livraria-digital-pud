@@ -46,6 +46,25 @@ router.get('/livro/isbn/:id',
     }
 );
 
+// Buscar livros por genero
+// rota: /api/v1/busca/livro/genero/<isbn>
+router.get('/livro/genero/:id',
+    (req, res) => {
+        let sqlQry = 'SELECT * FROM livro where idGenero = ?';
+        const values = [parseInt(req.params.id)];
+
+        execSQLQuery(sqlQry, values,
+            function(err, rows) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(rows);
+                }
+            }
+        );
+    }
+);
+
 // Buscar livros por autor
 // rota: /api/v1/busca/livro/autor/?nome=<nome do autor>
 router.get('/livro/autor/',
