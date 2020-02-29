@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const execSQLQuery = require('../BD/config');
+const execSQLQuery = require('../bd/config');
 
 //definindo as rotas
 const router = express.Router();
@@ -18,7 +18,7 @@ router.get('/:id?',
             sqlQry += ' WHERE idGenero = ?';
             values = [parseInt(req.params.id)];
         }
-        
+
         execSQLQuery(sqlQry, values,
             function(err, rows) {
                 if (err) {
