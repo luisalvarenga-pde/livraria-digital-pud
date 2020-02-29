@@ -7,7 +7,6 @@ const router = express.Router();
 
 // Buscar livros por nome
 // rota: /api/v1/busca/livro/?nome=<nome do livro>
- busca livros por nome
 router.get('/livro/',
     (req, res) => {
         let sqlQry = 'SELECT * FROM livro WHERE nome LIKE ? ';
