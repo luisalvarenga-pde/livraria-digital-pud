@@ -50,7 +50,7 @@ router.get('/livro/isbn/:id',
 // rota: /api/v1/busca/livro/autor/?nome=<nome do autor>
 router.get('/livro/autor/',
     (req, res) => {
-        let sqlQry = 'SELECT l.nome, a.nome ';
+        let sqlQry = 'SELECT l.*, a.nome ';
         sqlQry += '     FROM livro as l ';
         sqlQry += '    INNER JOIN autorlivro as al ';
         sqlQry += '       ON l.idLivro = al.idAutor ';
