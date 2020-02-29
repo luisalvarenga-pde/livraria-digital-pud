@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const execSQLQuery = require('../bd/config');
- 
+const execSQLQuery = require('../BD/config');
+
 //definindo as rotas
 const router = express.Router();
 
