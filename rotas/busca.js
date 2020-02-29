@@ -53,7 +53,7 @@ router.get('/livro/autor/',
         let sqlQry = 'SELECT l.*, a.nome ';
         sqlQry += '     FROM livro as l ';
         sqlQry += '    INNER JOIN autorlivro as al ';
-        sqlQry += '       ON l.idLivro = al.idAutor ';
+        sqlQry += '       ON l.idLivro = al.idLivro ';
         sqlQry += '    INNER JOIN autor as a ';
         sqlQry += '       ON a.idAutor = al.idAutor ';
         sqlQry += '    WHERE a.nome like ?';
