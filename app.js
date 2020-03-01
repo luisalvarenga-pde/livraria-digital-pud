@@ -5,6 +5,7 @@ const index = require('./rotas/index');
 const livro = require('./rotas/livro');
 const busca = require('./rotas/busca');
 const genero = require('./rotas/genero');
+const editora = require('./rotas/editora');
 
 const app = express();
 
@@ -24,7 +25,7 @@ app.use('/', index);
 app.use('/api/v1/busca/', busca);
 app.use('/api/v1/genero/', genero);
 app.use('/api/v1/livro/', livro);
+app.use('/api/v1/editora/', editora);
 
 // exporta o app express
 module.exports = app;
-
