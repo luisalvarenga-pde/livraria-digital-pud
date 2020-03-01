@@ -1,3 +1,5 @@
-# livraria-digital-pud
+# Curso de Desenvolvimento para Web
 
-Projeto da Livraria Digital da Plataforma Urbana Digital
+Projeto da Livraria da Plataforma Urbana Digital
+
+API
